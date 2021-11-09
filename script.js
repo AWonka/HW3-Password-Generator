@@ -42,6 +42,7 @@ passwordLowerCase = passwordLowerCase.toUpperCase();
 if (passwordLowerCase === "Y") {
   ifLowerCase = "Y";
   ifSelected++;
+  chars += "abcdefghijklmnopqrstuvwxyz";
 } else if (passwordLowerCase === "N") {
   ifLowerCase = "N";
 } else {
@@ -62,6 +63,7 @@ passwordUpperCase = passwordUpperCase.toUpperCase();
 if (passwordUpperCase === "Y") {
   ifUpperCase = "Y";
   ifSelected++;
+  chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 } else if (passwordUpperCase === "N"){
   ifUpperCase = "N";
 } else {
@@ -82,6 +84,7 @@ passwordNumeric = passwordNumeric.toUpperCase();
 if (passwordNumeric === "Y") {
   ifNumeric = "Y";
   ifSelected++;  
+  chars += "0123456789";
 } else if (passwordNumeric === "N") {
   ifNumeric = "N";
 } else {
@@ -102,6 +105,7 @@ passwordSpecial = passwordSpecial.toUpperCase();
 if (passwordSpecial === "Y") {
   ifSpecial = "Y";
   ifSelected++;
+  chars += "!@#$%^&*()_+";
 } else if (passwordSpecial === "N") {
   ifSpecial = "N";
 } else {
@@ -113,6 +117,8 @@ console.log(ifSpecial);
 
 console.log(ifSelected);
 
+console.log(chars);
+
 // Will this create a loop if I don't return on cancel or does cancel end function?
 if (ifSelected >= 1) {
   window.confirm("Click OK to generate your random password!");
@@ -121,18 +127,16 @@ if (ifSelected >= 1) {
   generatePassword();
 }
 
-
-
-
+var retVal = "";
+for (var i = 0; i < length; i++) {
+  retVal += chars.charAt(Math.floor(Math.random() * chars.length));
 }
 
+console.log(retVal);
 
+return retVal;
 
-
-
-
-
-
+}
 
 
 
